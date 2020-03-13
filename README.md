@@ -108,6 +108,7 @@ export class AppModule {}
 To test the connection just start postgresql and create the databse then start you server.
 
 #Add Entities
+
 generate two Modules 
 nest g module author
 
@@ -116,6 +117,7 @@ nest g module article
 add author.entity.ts et article.entity.ts 
 
 #Database connection
+
 generate two services.
 nest g service author
 
@@ -137,12 +139,14 @@ import { Article } from './article.entity';
 export class ArticleModule {}
 ```
 #generate controllers
+
 nest g controller article
 
 nest g controller author
 then inject each service in the suitable controller.
 
 #Add Crud Module
+
 npm add @nestjsx/crud @nestjsx/crud-typeorm class-transformer class-validator
 
 update each service and controller 
