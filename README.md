@@ -45,7 +45,7 @@ $ npm install
 
 ```bash
 # start Postgresql
-c
+```
 
 ```bash
 # create the database
