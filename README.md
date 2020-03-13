@@ -45,13 +45,14 @@ $ npm install
 
 ```bash
 # start Postgresql
+c
 
 ```bash
 # create the database
 $ create a databse and update ormconfig.json with your configuration
+```
 
 ```bash
 # open a terminal and run the server
 $ npm run start:dev
-
-  Nest is [MIT licensed](LICENSE).
+```
