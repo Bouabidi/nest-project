@@ -86,10 +86,12 @@ and open open http://localhost:3000/test
 NestJs offers other decorators (Get, Post, Put, Delete, etc...)
 
 #TypeORM 
+```
 we will use TypeORM to create entity for our API and use Postgresql to save our data.
 npm add @nestjs/typeorm typeorm pg.
 create configuration file: touch ormconfig.json
 update app.module.ts and import TypeOrmModule
+```
 ```javascript
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
