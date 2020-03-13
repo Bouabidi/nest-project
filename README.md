@@ -82,4 +82,6 @@ getHello(name: string): string {
 and open open http://localhost:3000/test
  we will get Hello test!
 
+NestJs offers other decorators (Get, Post, Put, Delete, etc...)
+
 
