@@ -67,7 +67,7 @@ $ nest new nest-project
 ```bash
 # route customize 
 $ to create a new route we can update app.controller.ts
-```javascript
+```
 @Get(':id')
 getHello(@Param('name') name: string): string {
   return this.appService.getHello(id);
