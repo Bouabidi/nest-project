@@ -74,7 +74,7 @@ getHello(@Param('name') name: string): string {
 }
 ```
 and then update app.service.ts
-```javascript
+```
 getHello(name: string): string {
   return `Hello ${id}!`;
 }
