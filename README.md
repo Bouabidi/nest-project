@@ -56,3 +56,10 @@ $ create a databse and update ormconfig.json with your configuration
 # open a terminal and run the server
 $ npm run start:dev
 ```
+## Tutorial
+#Create new Project
+```bash
+# create the project
+$ nest new nest-project
+```
+
