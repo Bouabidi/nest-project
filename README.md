@@ -107,6 +107,85 @@ export class AppModule {}
 ```
 To test the connection just start postgresql and create the databse then start you server.
 
+#Add Entities
+generate two Modules 
+nest g module author
+
+nest g module article
+
+add author.entity.ts et article.entity.ts 
+
+#Database connection
+generate two services.
+nest g service author
+
+nest g service article
+
+update the ArticleModule and do the same with AuthorModule
+```javascript
+import { Module } from '@nestjs/common';
+import { ArticleService } from './article.service';
+import { ArticleController } from './article.controller';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Article } from './article.entity';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([Article])],
+  providers: [ArticleService],
+  controllers: [ArticleController]
+})
+export class ArticleModule {}
+```
+#generate controllers
+nest g controller article
+
+nest g controller author
+then inject each service in the suitable controller.
+
+#Add Crud Module
+npm add @nestjsx/crud @nestjsx/crud-typeorm class-transformer class-validator
+
+update each service and controller 
+```javascript
+// article.controller.ts
+import { Controller } from '@nestjs/common';
+import { ArticleService } from './article.service';
+import { Article } from './article.entity';
+import { Crud } from '@nestjsx/crud';
+
+@Crud({
+  model: {
+    type: Article,
+  },
+  query: {
+    join: {
+      author: {
+        eager: true,
+      },
+    },
+  },
+})
+@Controller('articles')
+export class ArticleController {
+  constructor(public service: ArticleService) {}
+}
+
+// article.service.ts
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Article } from './article.entity';
+import { TypeOrmCrudService } from '@nestjsx/crud-typeorm';
+
+@Injectable()
+export class ArticleService extends TypeOrmCrudService<Article> {
+  constructor(@InjectRepository(Article) article) {
+    super(article);
+  }
+}
+```
+do the same with the AuthorController  and AuthorService 
+Now you kann use your API.
+
 
 
 
