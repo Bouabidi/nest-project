@@ -31,6 +31,13 @@
 ## Installation
 
 ```bash
+$ git clone https://github.com/Bouabidi/nest-project.git
+```
+```bash
+$ cd nest-project
+```
+
+```bash
 $ npm install
 ```
 
