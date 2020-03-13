@@ -110,6 +110,7 @@ To test the connection just start postgresql and create the databse then start y
 #Add Entities
 
 generate two Modules 
+
 nest g module author
 
 nest g module article
@@ -119,6 +120,7 @@ add author.entity.ts et article.entity.ts
 #Database connection
 
 generate two services.
+
 nest g service author
 
 nest g service article
@@ -143,6 +145,7 @@ export class ArticleModule {}
 nest g controller article
 
 nest g controller author
+
 then inject each service in the suitable controller.
 
 #Add Crud Module
