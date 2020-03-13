@@ -193,6 +193,45 @@ export class ArticleService extends TypeOrmCrudService<Article> {
 do the same with the AuthorController  and AuthorService 
 Now you kann use your API.
 
+#Add Swagger
+npm add @nestjs/swagger swagger-ui-express
+
+update main.ts
+```javascript
+import { NestFactory } from '@nestjs/core';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { AppModule } from './app.module';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+
+  const options = new DocumentBuilder()
+    .setTitle('Tuto nest')
+    .setDescription('API articles et auteurs')
+    .setVersion('1.0')
+    .addTag('tuto-nest')
+    .build();
+  const document = SwaggerModule.createDocument(app, options);
+  SwaggerModule.setup('swagger', app, document);
+  await app.listen(3000);
+}
+bootstrap();
+```
+update the controllers by adding ApiTags
+
+update nest-cli.json
+```javascript
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "compilerOptions": {
+    "plugins": ["@nestjs/swagger/plugin"]
+  }
+}
+```
+update the entities by adding ApiProperty
+
+navigate to  http://localhost:3000/swagger 
 
 
 
