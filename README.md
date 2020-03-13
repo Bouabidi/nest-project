@@ -79,6 +79,7 @@ getHello(name: string): string {
   return `Hello ${id}!`;
 }
 ```
+and open open http://localhost:3000/test
+ we will get Hello test!
 
-```
 
